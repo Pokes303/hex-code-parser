@@ -1,0 +1,9 @@
+c:\users\jose\source\repos\HexParser\HexParser\bin\Debug\HexParser.exe
+c:\users\jose\source\repos\HexParser\HexParser\bin\Debug\HexParser.pdb
+c:\users\jose\source\repos\HexParser\HexParser\obj\Debug\HexParser.csprojAssemblyReference.cache
+c:\users\jose\source\repos\HexParser\HexParser\obj\Debug\HexParser.Form1.resources
+c:\users\jose\source\repos\HexParser\HexParser\obj\Debug\HexParser.Properties.Resources.resources
+c:\users\jose\source\repos\HexParser\HexParser\obj\Debug\HexParser.csproj.GenerateResource.cache
+c:\users\jose\source\repos\HexParser\HexParser\obj\Debug\HexParser.csproj.CoreCompileInputs.cache
+c:\users\jose\source\repos\HexParser\HexParser\obj\Debug\HexParser.exe
+c:\users\jose\source\repos\HexParser\HexParser\obj\Debug\HexParser.pdb
