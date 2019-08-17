@@ -30,27 +30,30 @@ namespace HexParser
             parseButton.Text = "Parsing...";
             parseButton.Enabled = false;
             parseButton.Update();
-
-            byte[] data = File.ReadAllBytes(fileTextBox.Text);
-
-            codeTextBox.Text = "{";
-
-            uint parser = 0;
-            for (uint i = 0; i < data.Length; i++)
+            
+            using (FileStream fs = File.OpenRead(fileTextBox.Text))
             {
-                if (parser > 0xF)
+                codeTextBox.Text = "{";
+
+                uint parser = 0;
+                while (fs.Position < fs.Length)
                 {
-                    codeTextBox.Text += "\n";
-                    parser = 0;
+                    if (parser > 0xF)
+                    {
+                        codeTextBox.Text += "\n";
+                        parser = 0;
+                    }
+
+                    byte b = (byte)fs.ReadByte();
+
+                    codeTextBox.Text += " 0x" + (b <= 0xF ? "0" : "") + string.Format("{0:X},", b);
+
+                    if (!oneLineCheckBox.Checked)
+                        parser++;
                 }
-
-                codeTextBox.Text += " 0x" + (data[i] <= 0xF ? "0" : "") + string.Format("{0:X},", data[i]);
-
-                if (!oneLineCheckBox.Checked)
-                    parser++;
+                codeTextBox.Text = codeTextBox.Text.Remove(codeTextBox.Text.Length - 1, 1);
+                codeTextBox.Text += " }";
             }
-            codeTextBox.Text = codeTextBox.Text.Remove(codeTextBox.Text.Length - 1, 1);
-            codeTextBox.Text += " }";
 
             Cursor.Current = Cursors.Default;
             parseButton.Text = "Parse!";
